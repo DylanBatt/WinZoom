@@ -4,21 +4,6 @@
 //
 //  Created by Dylan Batt on 07/03/2026.
 //
+//  Not used — WinZoom is a menu bar app with no main window.
+//  Settings are presented by MenuBarManager via SettingsView.
 
-import SwiftUI
-
-struct ContentView: View {
-    var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
-    }
-}
-
-#Preview {
-    ContentView()
-}
