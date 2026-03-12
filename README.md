@@ -6,6 +6,14 @@
 ![Version](https://img.shields.io/badge/version-1.0-green)
 ![License](https://img.shields.io/badge/license-MIT-brightgreen)
 
+## About This Project
+
+This is my first open‑source project, originally created for personal use. I initially attempted to publish it on the App Store, but it was rejected due to its use of accessibility APIs for non‑accessibility purposes. Rather than let the work go unused, I’ve decided to release it openly for anyone who may benefit from it.
+
+I built this tool after moving from Windows and realizing how much I relied on the familiar **Ctrl + Mouse Wheel** zoom/scale behavior. Since macOS doesn’t provide this functionality natively, this project is my implementation of that workflow.
+
+---
+
 WinZoom is a lightweight macOS menu bar utility that brings Windows-style Ctrl+Scroll zoom behaviour to macOS. It monitors scroll-wheel events system-wide and translates them into the standard macOS zoom shortcut (Cmd+= / Cmd+-), so any app that supports zoom responds instantly — no per-app configuration required.
 
 ---
