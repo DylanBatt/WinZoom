@@ -34,17 +34,9 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         if AXIsProcessTrusted() {
             // Accessibility already granted — start listening immediately.
             ZoomEngine.shared.start()
-        } else {
-            // Prompt the user to grant Accessibility permission.
-            // Uses takeUnretainedValue() because kAXTrustedCheckOptionPrompt
-            // is a framework-owned constant CF string (not a +1 transfer).
-            let opts: NSDictionary = [
-                kAXTrustedCheckOptionPrompt.takeUnretainedValue() as String: true
-            ]
-            AXIsProcessTrustedWithOptions(opts)
-            // The PermissionsView polls AXIsProcessTrusted() and starts
-            // ZoomEngine once the user grants permission.
         }
+        // If not yet trusted, PermissionsView will guide the user to
+        // System Settings and poll until permission is granted.
     }
 
     /// Called just before the app terminates — stop the event monitor cleanly.

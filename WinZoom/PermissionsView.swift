@@ -96,13 +96,13 @@ struct PermissionsView: View {
         timerCancellable = nil
     }
 
-    /// Shows the system Accessibility permission prompt for this app.
-    /// Uses takeUnretainedValue() because kAXTrustedCheckOptionPrompt is a
-    /// framework constant — not a +1 CF transfer — so we must not over-retain.
+    /// Opens System Settings > Privacy & Security > Accessibility directly.
+    /// AXIsProcessTrustedWithOptions no longer shows a reliable prompt on
+    /// macOS 13+ (especially in sandboxed or debug builds), so we navigate
+    /// the user there ourselves.
     private func requestAccessibilityPermission() {
-        let opts: NSDictionary = [
-            kAXTrustedCheckOptionPrompt.takeUnretainedValue() as String: true
-        ]
-        AXIsProcessTrustedWithOptions(opts)
+        if let url = URL(string: "x-apple.systempreferences:com.apple.preference.security?Privacy_Accessibility") {
+            NSWorkspace.shared.open(url)
+        }
     }
 }
